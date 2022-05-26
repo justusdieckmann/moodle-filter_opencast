@@ -81,6 +81,9 @@ class filter_opencast extends moodle_text_filter {
                     $height = false;
 
                     foreach ($matches as $match) {
+                        if (empty(trim($match))) {
+                            continue;
+                        }
                         // Check if the match is a video tag.
                         if (substr($match, 0, 6) === "<video") {
                             $video = true;
